@@ -17,3 +17,31 @@ public class Greeter {
         this.formality = formality;
     }
 }
+
+class FormalGreet implements Greeting {
+    @Override
+    public String greet() {
+        return "Good evening";
+    }
+}
+
+class CasualGreet implements Greeting {
+    @Override
+    public String greet() {
+        return "Goodday?";
+    }
+}
+
+class IntimateGreet implements Greeting {
+    @Override
+    public String greet() {
+        return "Hello darling!";
+    }
+}
+
+class BasicGreet implements Greeting {
+    @Override
+    public String greet() {
+        return "Hello";
+    }
+}

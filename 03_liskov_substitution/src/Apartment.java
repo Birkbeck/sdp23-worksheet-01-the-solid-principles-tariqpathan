@@ -1,6 +1,3 @@
-abstract sealed class Apartment  permits PenthouseSuite, Studio {
-    int squareFootage;
+abstract sealed class Apartment extends Unit permits PenthouseSuite {
     int numberOfBedrooms;
-
-    abstract void setSquareFootage(int sqft);
 }
