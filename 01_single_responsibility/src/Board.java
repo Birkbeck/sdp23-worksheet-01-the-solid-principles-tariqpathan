@@ -8,9 +8,4 @@ public class Board extends BoardOfSpots implements BoardPrinter{
                 + String.join (" | ", this.thirdRow());
         System.out.println(out);
     }
-
-    public static void main(String[] args) {
-        Board b = new Board();
-        b.display();
-    }
 }
