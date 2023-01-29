@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Board implements DisplayBoard{
+public class Board implements BoardBuilder, BoardPrinter{
     List<String> spots;
 
     public Board() {
@@ -10,7 +10,7 @@ public class Board implements DisplayBoard{
             this.spots.add(String.valueOf(i));
         }
     }
-
+    @Override
     public List<String> firstRow() {
         List<String> firstRow = new ArrayList<>();
         firstRow.add(this.spots.get(0));
@@ -18,7 +18,7 @@ public class Board implements DisplayBoard{
         firstRow.add(this.spots.get(2));
         return firstRow;
     }
-
+    @Override
     public List<String> secondRow() {
         List<String> secondRow = new ArrayList<>();
         secondRow.add(this.spots.get(3));
@@ -26,7 +26,7 @@ public class Board implements DisplayBoard{
         secondRow.add(this.spots.get(5));
         return secondRow;
     }
-
+    @Override
     public List<String> thirdRow() {
         List<String> thirdRow = new ArrayList<>();
         thirdRow.add(this.spots.get(6));
@@ -36,10 +36,29 @@ public class Board implements DisplayBoard{
     }
 
     // Poor code — can you improve this?
+    //@Override
+    public void display2() {
+        String out =
+                String.join(" | ", this.firstRow())
+                + "\n" +
+                String.join (" | ", this.secondRow())
+                + "\n" +
+                String.join (" | ", this.thirdRow());
+        String o = out.toString();
+        System.out.println(o);
+        System.out.println(out);
+    }
     public void display() {
         String formattedFirstRow = this.spots.get(0) + " | " + this.spots.get(1) + " | " + this.spots.get(2) + "\n"
-            + this.spots.get(3) + " | " + this.spots.get(4) + " | " + this.spots.get(5) + "\n"
-            + this.spots.get(6) + " | " + this.spots.get(7) + " | " + this.spots.get(8);
-        System.out.print(formattedFirstRow);
+                + this.spots.get(3) + " | " + this.spots.get(4) + " | " + this.spots.get(5) + "\n"
+                + this.spots.get(6) + " | " + this.spots.get(7) + " | " + this.spots.get(8);
+        System.out.println(formattedFirstRow);
+    }
+
+    public static void main(String[] args) {
+        Board b = new Board();
+        b.display();
+        b.display2();
+        b.display();
     }
 }
